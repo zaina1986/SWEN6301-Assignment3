@@ -2,6 +2,9 @@ package com.swen6301.builder.util;
 
 import java.util.Random;
 
+import com.swen6301.builder.BloodType;
+import com.swen6301.builder.Sex;
+
 public class RandomUtils {
 	
 	/**
@@ -64,9 +67,9 @@ public class RandomUtils {
 	 * 
 	 * @return a random blood type {@link String}.
 	 */
-	public static String randomBloodType() {
-		String[] bloodTypes = {null, "none", "a+", "a-", "o+", "o-", "b+", "b-", "ab+", "ab-"};
-		return bloodTypes[RANDOM.nextInt(bloodTypes.length)];
+	public static BloodType randomBloodType() {
+		int pick = RANDOM.nextInt(BloodType.values().length);
+		return BloodType.values()[pick];
 	}
 	
 	/**
@@ -74,9 +77,10 @@ public class RandomUtils {
 	 * 
 	 * @return a random sex type {@link String}.
 	 */
-	public static String randomSexString() {
-		String[] possibleSexValues = {null, "none", "male", "female"};
-		return possibleSexValues[RANDOM.nextInt(possibleSexValues.length)];
+	public static Sex randomSexString() {
+			
+		int pick = RANDOM.nextInt(Sex.values().length);
+		return Sex.values()[pick];
 	}
 	
 }
