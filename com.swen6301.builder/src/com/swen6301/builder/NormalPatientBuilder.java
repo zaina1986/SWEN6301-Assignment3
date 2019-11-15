@@ -1,5 +1,9 @@
 package com.swen6301.builder;
 
+
+import com.swen6301.builder.util.RandomUtils;
+
+
 public class NormalPatientBuilder implements GeneralPatientBuilder {
 	private Patient patient;
 	
@@ -14,60 +18,60 @@ public class NormalPatientBuilder implements GeneralPatientBuilder {
 	}
 
 	@Override
-	public void assignFirstName(String firstName) {
+	public void assignFirstName() {
 		// TODO Auto-generated method stub
-		this.patient.setFirstName(firstName);
+		this.patient.setFirstName(RandomUtils.randomIdentifier());
 		
 	}
 
 	@Override
-	public void assignMiddleName(String middleName) {
+	public void assignMiddleName() {
 		// TODO Auto-generated method stub
-		this.patient.setMiddleName(middleName);
+		this.patient.setMiddleName(RandomUtils.randomIdentifier());
 		
 	}
 
 	@Override
-	public void assignlastName(String lastName) {
+	public void assignlastName() {
 		// TODO Auto-generated method stub
-		this.patient.setLastName(lastName);
+		this.patient.setLastName(RandomUtils.randomIdentifier());
 		
 	}
 
 	@Override
-	public void assignAge(int age) {
+	public void assignAge() {
 		// TODO Auto-generated method stub
-		this.patient.setAge(age);
+		this.patient.setAge(RandomUtils.randomNumber(150));
 	}
 
 	@Override
-	public void assignWeight(int weight) {
+	public void assignWeight() {
 		// TODO Auto-generated method stub
-		this.patient.setWeight(weight);
+		this.patient.setWeight(RandomUtils.randomNumber(400));
 	}
 
 	@Override
-	public void assignHight(int hight) {
+	public void assignHight() {
 		// TODO Auto-generated method stub
-		this.patient.setHight(hight);
+		this.patient.setHight(RandomUtils.randomNumber(300));
 	}
 
 	@Override
-	public void assignSex(Sex sex) {
+	public void assignSex() {
 		// TODO Auto-generated method stub
-		this.patient.setSex(sex);
+		this.patient.setSex(RandomUtils.randomSexString());
 	}
 
 	@Override
-	public void assignBloodType(BloodType bloodType) {
+	public void assignBloodType() {
 		// TODO Auto-generated method stub
-		this.patient.setBloodType(bloodType);
+		this.patient.setBloodType(RandomUtils.randomBloodType());
 	}
 
 	@Override
-	public void assignOrganDoner(boolean organDoner) {
+	public void assignOrganDoner() {
 		// TODO Auto-generated method stub
-		this.patient.setOrganDoner(organDoner);
+		this.patient.setOrganDoner(RandomUtils.randomBoolean());
 	}
 
 }

@@ -2,9 +2,6 @@ package com.swen6301.builder.util;
 
 import java.util.Random;
 
-import com.swen6301.builder.BloodType;
-import com.swen6301.builder.Sex;
-
 public class RandomUtils {
 	
 	/**

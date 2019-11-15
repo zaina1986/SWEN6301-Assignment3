@@ -1,5 +1,8 @@
 package com.swen6301.builder;
 
+import com.swen6301.builder.util.BloodType;
+import com.swen6301.builder.util.Sex;
+
 public class Patient {
 	private String firstName;
 	private String middleName;

@@ -1,6 +1,7 @@
 package com.swen6301.builder;
 
-import com.swen6301.builder.util.RandomUtils;
+import com.swen6301.builder.util.PersistenceUtils;
+
 
 public class PatientDirector {
 	private GeneralPatientBuilder patientBuilder;
@@ -15,17 +16,22 @@ public class PatientDirector {
 		return this.patientBuilder.getPatient();
 	}
 	
-	public void build()
+	public Patient build()
 	{
-		this.patientBuilder.assignFirstName(RandomUtils.randomIdentifier());
-		this.patientBuilder.assignMiddleName(RandomUtils.randomIdentifier());
-		this.patientBuilder.assignlastName(RandomUtils.randomIdentifier());
-		this.patientBuilder.assignAge(RandomUtils.randomNumber(150));
-		this.patientBuilder.assignWeight(RandomUtils.randomNumber(400));
-		this.patientBuilder.assignHight(RandomUtils.randomNumber(300));
-		this.patientBuilder.assignSex(RandomUtils.randomSexString());
-		this.patientBuilder.assignBloodType(RandomUtils.randomBloodType());
-		this.patientBuilder.assignOrganDoner(RandomUtils.randomBoolean());
+		Patient patient=getPatient();
+		validatePatient(patient);
+		return patient;
+	}
+	
+	public void validatePatient(Patient patient)
+	{
+		boolean success = PersistenceUtils.storePatient(patient);
+		if(success) {
+			System.out.println("Patient [" + patient.getFirstName() + ", " + patient.getLastName() + "] has been successfully processed!");
+			
+		} else {
+			System.out.println("An error occurred while processing info for patient [" + patient.getFirstName() + ", " + patient.getLastName() + "]!");
+		}
 	}
 	
 

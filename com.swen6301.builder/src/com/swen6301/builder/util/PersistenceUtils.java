@@ -36,6 +36,7 @@ public final class PersistenceUtils {
 			return false;
 		}
 		// hidden implementation details for persisting patient info to internal storage.
+		System.out.println(patient.toString());
 		return true;
 	}
 	

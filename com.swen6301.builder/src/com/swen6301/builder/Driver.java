@@ -21,19 +21,25 @@ public class Driver {
 	 * Creates a sample patient info and store them on internal storage.
 	 */
 	public static void createRandomPatient() {
-		GeneralPatientBuilder normalPatientBuilder=new NormalPatientBuilder();
-		PatientDirector patientDirector=new PatientDirector(normalPatientBuilder);
-		patientDirector.build();
-		Patient patient=patientDirector.getPatient();
+		GeneralPatientBuilder patientBuilder=new NormalPatientBuilder();
+		// the following attribute may not be all written and the builder must work and create patient
+		patientBuilder.assignFirstName();
+		patientBuilder.assignMiddleName();
+		patientBuilder.assignlastName();
+		patientBuilder.assignAge();
+		patientBuilder.assignWeight();
+		patientBuilder.assignHight();
+		patientBuilder.assignSex();
+		patientBuilder.assignBloodType();
+		patientBuilder.assignOrganDoner();
+		PatientDirector patientDirector=new PatientDirector(patientBuilder);
+		
+		// build() will create the patient and will not store it until it is validated
+		// I supposed that Store a patient means printing all his information
+		Patient patient=patientDirector.build();
 		
 		
-		boolean success = PersistenceUtils.storePatient(patient);
-		if(success) {
-			System.out.println("Patient [" + patient.getFirstName() + ", " + patient.getLastName() + "] has been successfully processed!");
-			System.out.println(patient.toString());
-		} else {
-			System.out.println("An error occurred while processing info for patient [" + patient.getFirstName() + ", " + patient.getLastName() + "]!");
-		}
+		
 	}
 	
 }
